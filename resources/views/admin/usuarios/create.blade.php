@@ -6,6 +6,14 @@
 
 <div class="container">
 
+@if($errors->has())
+            <div class="alert alert-warning" role="alert">
+               @foreach ($errors->all() as $error)
+                  <div>{{ $error }}</div>
+              @endforeach
+            </div>
+        @endif </br>
+
 	<div class="row">
 		
 	<div class="col-md-4 col-md-offset-4">
@@ -16,20 +24,20 @@
 
 <div class="form-group">
 	
-	{!!Form::text('name', null, ['class'=> 'form-control', 'required', 'placeholder'=>'Nombre'])!!}
+	{!!Form::text('name', null, ['class'=> 'form-control', 'required' => 'required', 'placeholder'=>'Nombre'])!!}
 
 
 </div>
 
 <div class="form-group">
 
-	{!!Form::email('email', null, ['class'=> 'form-control', 'required', 'placeholder'=>'example@correo.com'])!!}
+	{!!Form::email('email', null, ['class'=> 'form-control', 'required' => 'required', 'placeholder'=>'example@correo.com'])!!}
 
 </div>
 
 <div class="form-group">
 
-	{!!Form::password('password', ['class'=> 'form-control', 'required', 'placeholder'=>'*********'])!!}
+	{!!Form::password('password', ['class'=> 'form-control', 'required' => 'required', 'placeholder'=>'*********'])!!}
 
 
 </div>

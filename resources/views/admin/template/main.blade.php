@@ -26,16 +26,7 @@
  	</div>
  </section>
  </body>
-<footer class="row container-fluid navbar-fixed-bottom">
-      <div class="large-12 columns">
-        <hr/>
-        <div class="row">
-          <div class="large-6 columns">
-            <p style="text-align: center;">Distribuidora Ricamar&nbsp;&copy; Copyright <?php echo date('Y'); ?>.</p>
-          </div>
-        </div>
-      </div>
-</footer>
+ @include('admin.template.partials.footer')
 <script type="text/javascript" src="{{asset('jquery/jquery-3.1.1.js')}}"></script>
 <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.js')}}"></script>
 </html>

@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\User;
 
+use Validator;
+
 use Laracasts\Flash\FlashServiceProvider;
 
 class UsuariosController extends Controller
@@ -50,6 +52,17 @@ class UsuariosController extends Controller
     {
         //
         //dd($request->all());
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|',
+            ]);
+
+        if ($validator->fails()) {
+            # code...
+            return redirect()->route('admin.usuarios.create')->withErrors($validator)
+                        ->withInput();
+        }
         $user = new User($request->all());
         $user->save();
         flash(' El usuario '.$user->name. ' ha sido registrado exitosamente ', 'danger');
@@ -116,9 +129,7 @@ class UsuariosController extends Controller
         $usuario = User::find($id);
         $usuario->delete();
 
-        //flash('El usuario '.$usuario->name. ' ha sido eliminado exitosamente','warning');
-        flash('Message', 'danger');
-        flash('Message', 'warning');
+        flash('El usuario '.$usuario->name. ' ha sido eliminado exitosamente','warning');
         return redirect()->route('admin.usuarios.index');
     }
 }
