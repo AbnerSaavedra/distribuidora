@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('title', 'Lista de materiales')
+@section('title', 'Detalle de material')
 
 @section('content')
 

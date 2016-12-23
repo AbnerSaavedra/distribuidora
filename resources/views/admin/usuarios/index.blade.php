@@ -10,7 +10,7 @@
 		
 	<div class="col-md-6 col-md-offset-3">
 
-<a href="{{ route('admin.usuarios.create') }}" class="btn btn-info col-md-offset-9">Nuevo material</a><br><br>
+<a href="{{ route('admin.usuarios.create') }}" class="btn btn-info col-md-offset-9">Nuevo usuario</a><br><br>
 <table class="table table-striped">
 <thead>
 	<th>ID</th>

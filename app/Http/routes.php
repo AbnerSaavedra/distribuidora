@@ -18,16 +18,34 @@ Route::get('/', function () {
 //Route::get('materiales', 'materialesController@index');
 
 Route::group(['prefix' => 'admin'], function(){
-
+	//Usuarios
 	Route::resource('usuarios','UsuariosController');
 	Route::get('usuarios/{id}/destroy', [
 		'uses' => 'UsuariosController@destroy',
 		'as'   => 'admin.usuarios.destroy'
 	]);
-
+	//Materiales
 	Route::resource('materiales','MaterialesController');
 	Route::get('materiales/{id}/destroy', [
 		'uses' => 'materialesController@destroy',
 		'as'   => 'admin.materiales.destroy'
+	]);
+	//Clientes
+	Route::resource('clientes','ClientesController');
+	Route::get('clientes/{id}/destroy', [
+		'uses' => 'clientesController@destroy',
+		'as'   => 'admin.clientes.destroy'
+	]);
+	//Vendedores
+	Route::resource('vendedores','VendedoresController');
+	Route::get('vendedores/{id}/destroy', [
+		'uses' => 'vendedoresController@destroy',
+		'as'   => 'admin.vendedores.destroy'
+	]);
+	//Departamentos
+	Route::resource('dptos','DptosController');
+	Route::get('dptos/{id}/destroy', [
+		'uses' => 'DptosController@destroy',
+		'as'   => 'admin.dptos.destroy'
 	]);
 });

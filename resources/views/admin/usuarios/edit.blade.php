@@ -15,6 +15,7 @@
 {!! Form::open(['route'=>['admin.usuarios.update', $usuario], 'method' => 'PUT'])!!}
 
 <div class="form-group">
+	{!! Form::label('name', 'Nombre')!!}
 	
 	{!!Form::text('name', $usuario->name, ['class'=> 'form-control', 'required', 'placeholder'=>'Nombre'])!!}
 
@@ -22,6 +23,7 @@
 </div>
 
 <div class="form-group">
+	{!! Form::label('email', 'Correo eléctronico')!!}
 
 	{!!Form::email('email', $usuario->email, ['class'=> 'form-control', 'required', 'placeholder'=>'example@correo.com'])!!}
 
