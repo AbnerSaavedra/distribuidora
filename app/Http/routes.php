@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('auth/login');
 });
 
 //Route::get('materiales', 'materialesController@index');
@@ -49,3 +49,20 @@ Route::group(['prefix' => 'admin'], function(){
 		'as'   => 'admin.dptos.destroy'
 	]);
 });
+
+/*Route::group(['middleware'=>['web']], function(){
+
+	Route::get('/',function(){
+
+		return view('welcome');
+	});
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+});*/
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
