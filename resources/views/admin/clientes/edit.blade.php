@@ -8,13 +8,25 @@
 
 	<div class="row">
 		
-	<div class="col-md-4 col-md-offset-4">
+	<div class="col-md-12 col-md-offset-0">
 
-	<h2>Editar cliente</h2>
+	
+			<div class="panel panel-default">
+	
+				<div class="panel-body">
+
+					<h2 class="col-md-offset-5">Editar cliente</h2>
+
+				</div>
+
+			</div>
+				
 	
 {!! Form::open(['route'=>['admin.clientes.update', $cliente], 'method' => 'PUT']) !!}
 
-<div class="form-group">
+<div class="col-md-6">
+	
+	<div class="form-group">
 
 	{!! Form::label('cod_cli', 'Código') !!}
 	
@@ -48,6 +60,10 @@
 
 </div>
 
+</div>
+
+<div class="col-md-6">
+	
 <div class="form-group">
 
 	{!! Form::label('direc_cli', 'Dirección') !!}
@@ -67,12 +83,14 @@
 
 <div class="form-group">
 
-	{!!Form::select('zona_cli', [''=>'Seleccione la zona.','Centroocidental' => 'Lara','Zuliana' => 'Maracaibo','Zuliana' => 'Ciudad Ojeda'], ['class'=> 'form-control', 'required' => 'required'])!!}
+	{!!Form::select('zona_cli', [$cliente->zona_cli=> $cliente->zona_cli,'Centroocidental' => 'Lara','Zuliana' => 'Maracaibo','Zuliana' => 'Ciudad Ojeda'], ['class'=> 'form-control', 'required' => 'required'])!!}
 </div>
 
 <div class="form-group">
 	
 	{!! Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
+
+</div>
 
 </div>
 

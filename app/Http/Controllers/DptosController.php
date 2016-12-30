@@ -59,7 +59,7 @@ class DptosController extends Controller
         }
         $dpto = new dpto($request->all());
         $dpto->save();
-        flash(' El dpto '.$dpto->codigo_dpto. ' ha sido registrado exitosamente ', 'danger');
+        flash(' El dpto '.$dpto->codigo_dpto. ' ha sido registrado exitosamente ', 'success');
         return redirect()->route('admin.dptos.index');
 
 
@@ -104,7 +104,7 @@ class DptosController extends Controller
         $dpto->codigo_dpto = $request->codigo_dpto;
         $dpto->desc_dpto = $request->desc_dpto;
         $dpto->save();
-        flash('Dpto. '.$dpto->codigo_dpto.' modificado exitosamente', 'warning');
+        flash('Dpto. '.$dpto->codigo_dpto.' modificado exitosamente', 'success');
         return redirect()->route('admin.dptos.index');
     }
 

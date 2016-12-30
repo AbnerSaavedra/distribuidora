@@ -85,13 +85,13 @@ class MaterialesController extends Controller
                         ->withInput();
         }
 
-        $path = $request->file('path');
-        $name = time().'_'.$path->getClientOriginalName();
-        Storage::disk('local')->put($name, file_get_contents($path->getRealPath()));
+        /*$path = $request->file('path');
+        $name = time()->second.'_'.$path->getClientOriginalName();
+        Storage::disk('local')->put($name, file_get_contents($path->getRealPath()));*/
         $material = new Material($request->all());
         $existencia = $request->existencia;
         $material->existencia = $existencia;
-        $material->foto = $name;
+        //$material->foto = $name;
         $material->save();
         flash(' El material '.$material->cod_mat. ' ha sido registrado exitosamente ', 'success');
         return redirect()->route('admin.materiales.index');
@@ -142,13 +142,13 @@ class MaterialesController extends Controller
         $material->cod_mat = $request->cod_mat;
         $material->desc_mat = $request->desc_mat;
         $material->dpto = $request->dpto;
-        //$material->foto = $request->foto;
+        $material->path = $request->path;
         $material->detalles = $request->detalles;
         $material->cantidad_venta = $request->cantidad_venta;
         $material->precio_venta = $request->precio_venta;
         $material->existencia = $request->existencia;
         $material->save();
-        flash('Material '.$material->cod_mat.' modificado exitosamente', 'warning');
+        flash('Material '.$material->cod_mat.' modificado exitosamente', 'success');
         return redirect()->route('admin.materiales.index');
     }
 

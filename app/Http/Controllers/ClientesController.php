@@ -78,7 +78,7 @@ class ClientesController extends Controller
 
         $cliente = new Cliente($request->all());
         $cliente->save();
-        flash(' El cliente '.$cliente->nombre_cli. ' ha sido registrado exitosamente ', 'danger');
+        flash(' El cliente '.$cliente->nombre_cli. ' ha sido registrado exitosamente ', 'success');
         return redirect()->route('admin.clientes.index');
     }
 
@@ -131,7 +131,7 @@ class ClientesController extends Controller
         //$cliente->zona_cli = $request->zona_cli;
         $cliente->email_cli = $request->email_cli;
         $cliente->save();
-        flash('Cliente '.$cliente->nombre_cli.' modificado exitosamente', 'warning');
+        flash('Cliente '.$cliente->nombre_cli.' modificado exitosamente', 'success');
         return redirect()->route('admin.clientes.index');
     }
 

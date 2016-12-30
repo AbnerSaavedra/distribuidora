@@ -8,13 +8,23 @@
 
 	<div class="row">
 		
-	<div class="col-md-4 col-md-offset-4">
+	<div class="col-md-12 col-md-offset-0">
 
-	<h2>Editar vendedor</h2>
+		<div class="panel panel-default">
+			
+			<div class="panel-body">
+				
+				<p><h2 class="col-md-offset-5">Editar vendedor</h2></p>	
+
+			</div>
+
+		</div>
 	
 {!! Form::open(['route'=>['admin.vendedores.update', $vendedor], 'method' => 'PUT']) !!}
 
-<div class="form-group">
+<div class="col-md-6">
+	
+	<div class="form-group">
 
 	{!! Form::label('cod_vend', 'Código') !!}
 	
@@ -48,7 +58,11 @@
 
 </div>
 
-<div class="form-group">
+</div>
+
+<div class="col-md-6">
+	
+	<div class="form-group">
 
 	{!! Form::label('direc_vend', 'Dirección') !!}
 	
@@ -67,12 +81,14 @@
 
 <div class="form-group">
 
-	{!!Form::select('zona_vend', [''=>'Seleccione la zona.','Centroocidental' => 'Lara','Zuliana' => 'Maracaibo','Zuliana' => 'Ciudad Ojeda'], ['class'=> 'form-control', 'required' => 'required'])!!}
+	{!!Form::select('zona_vend', [$vendedor->zona_vend=>$vendedor->zona_vend,'Centroocidental' => 'Lara','Zuliana' => 'Maracaibo','Zuliana' => 'Ciudad Ojeda'], ['class'=> 'form-control', 'required' => 'required'])!!}
 </div>
 
 <div class="form-group">
 	
 	{!! Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
+
+</div>
 
 </div>
 

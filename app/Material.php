@@ -22,6 +22,15 @@ class Material extends Model
         'cod_mat', 'desc_mat', 'dpto', 'foto', 'detalles', 'cantidad_venta', 'precio_venta', 'exitencia', 'path',
     ];
 
+    public function setPathAttribute($path){
+            if (!empty($path)) {
+                # code...
+                $this->attributes['path'] = time().'_'.$path->getClientOriginalName();
+                $name = time().'_'.$path->getClientOriginalName();
+                \Storage::disk('local')->put($name, \File::get($path));
+            }
+    }
+
     
 
     public function scopeCodmat($query, $cod_mat){

@@ -30,9 +30,9 @@
 	
 {!! Form::open(['route'=>'admin.materiales.store', 'method' => 'POST', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
 
-<div class="col-md-6 panel-body">
+<div class="col-md-6">
 	
-	<div class="form-group">
+<div class="form-group">
 	
 	{!!Form::text('cod_mat', null, ['class'=> 'form-control', 'required' => 'required', 'placeholder'=>'Código del material'])!!}
 
@@ -54,14 +54,14 @@
 
 </div>
 
-<div class="col-md-6 panel-body">
+<div class="col-md-6">
 	
 	<div class="form-group">
 	
 	{!! Form::input('number', 'cantidad_venta', null, ['class' => 'form-control', 'required' => 'required', 'placeholder'=>'Cantidad por venta']) !!}
 
-</div>
-
+	</div>
+	
 <div class="form-group">
 	
 	{!! Form::input('number', 'precio_venta', null, ['class' => 'form-control','step'=>'any', 'required|between:0,99.99', 'placeholder'=>'Precio de venta']) !!}
@@ -92,6 +92,7 @@
 
 </div>
 
+</div>
 
 </div>
 
@@ -99,9 +100,4 @@
 {!! Form::close()!!}
 
 </div>
-
-	</div>
-
-</div>
-
 @stop

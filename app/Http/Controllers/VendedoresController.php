@@ -75,7 +75,7 @@ class VendedoresController extends Controller
 
         $vendedor = new Vendedor($request->all());
         $vendedor->save();
-        flash(' El vendedor '.$vendedor->nombre_vend. ' ha sido registrado exitosamente ', 'danger');
+        flash(' El vendedor '.$vendedor->nombre_vend. ' ha sido registrado exitosamente ', 'success');
         return redirect()->route('admin.vendedores.index');
     }
 
@@ -125,10 +125,10 @@ class VendedoresController extends Controller
         $vendedor->desc_vend = $request->desc_vend;
         $vendedor->direc_vend = $request->direc_vend;
         $vendedor->telefono_vend = $request->telefono_vend;
-        //$vendedor->zona_vend = $request->zona_cli;
-        $vendedor->email_vend = $request->email_cli;
+        $vendedor->zona_vend = $request->zona_vend;
+        $vendedor->email_vend = $request->email_vend;
         $vendedor->save();
-        flash('Vendedor '.$vendedor->nombre_vend.' modificado exitosamente', 'warning');
+        flash('Vendedor '.$vendedor->nombre_vend.' modificado exitosamente', 'success');
         return redirect()->route('admin.vendedores.index');
     }
 
