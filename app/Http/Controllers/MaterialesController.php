@@ -12,6 +12,10 @@ use Validator;
 
 use Storage;
 
+use Input;
+
+use Image;
+
 use Laracasts\Flash\FlashServiceProvider;
 
 class MaterialesController extends Controller
@@ -23,10 +27,11 @@ class MaterialesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $materiales = Material::orderBy('id','ASC')->paginate(2);
+        $materiales = Material::Codmat($request->get('cod_mat'))->orderBy('id','ASC')->paginate(10);
+        //$materiales = Material::orderBy('id','ASC')->paginate(2);
         return view('admin.materiales.index')->with('materiales', $materiales);
 
     }
@@ -65,11 +70,12 @@ class MaterialesController extends Controller
             'cod_mat' => 'required|max:10|unique:materiales',
             'desc_mat' => 'required|max:255',
             'dpto' => 'required|max:100|',
-            'foto' => 'required',
+            'path' => 'image|required',
             'detalles' => 'required|max:300',
             'cantidad_venta' => 'required',
-            'precio_venta' => 'required',
             'existencia' => 'required',
+            'precio_venta' => 'required',
+            
 
             ]);
 
@@ -79,14 +85,15 @@ class MaterialesController extends Controller
                         ->withInput();
         }
 
-        
-        $img = $request->file('foto');
-        $img_route = time().'_'.$img->getClientOriginalName();
-        Storage::disk('local')->put($img_route, file_get_contents($img->getRealPath()));
+        $path = $request->file('path');
+        $name = time().'_'.$path->getClientOriginalName();
+        Storage::disk('local')->put($name, file_get_contents($path->getRealPath()));
         $material = new Material($request->all());
-        $material->foto = $img_route;
+        $existencia = $request->existencia;
+        $material->existencia = $existencia;
+        $material->foto = $name;
         $material->save();
-        flash(' El usuario '.$material->cod_mat. ' ha sido registrado exitosamente ', 'danger');
+        flash(' El material '.$material->cod_mat. ' ha sido registrado exitosamente ', 'success');
         return redirect()->route('admin.materiales.index');
     }
 
@@ -101,7 +108,8 @@ class MaterialesController extends Controller
         //
 
         $material = Material::find($id);
-        return view('admin.materiales.show')->with('material', $material);
+        $img = $material->foto;
+        return view('admin.materiales.show')->with('material', $material, 'img', $img);
     }
 
     /**

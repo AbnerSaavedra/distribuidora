@@ -14,23 +14,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Inicio<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="{{route('admin.materiales.index')}}">Inicio<span class="sr-only">(current)</span></a></li>
         <li><a href="{{route('admin.usuarios.index')}}">Usuarios</a></li>
         <li><a href="{{route('admin.materiales.index')}}">Materiales</a></li>
         <li><a href="{{route('admin.clientes.index')}}">Clientes</a></li>
         <li><a href="{{route('admin.vendedores.index')}}">Vendedores</a></li>
         <li><a href="{{route('admin.dptos.index')}}">Dptos.</a></li>
+        <li><a href="{{route('admin.dptos.index')}}">Pedidos</a></li>
       </ul>
-        
-        <div class="col-md-4 col-md-offset-2">
-        <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Buscar material...">
-        </div>
-        <!--<button type="submit" class="btn btn-default">Submit</button>-->
-        <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
-      </form>
-      </div>
        <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->

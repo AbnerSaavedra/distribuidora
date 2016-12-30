@@ -14,15 +14,25 @@
             </div>
         @endif </br>
 
-	<div class="row">
+<div class="row">
 		
-	<div class="col-md-4 col-md-offset-4">
+	<div class="col-md-12 col-md-offset-0">
 
-	<h2>Registrar material</h2>
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+			<h2 class="col-md-offset-5">Registrar material</h2>
+
+		</div>
+
+			</div>
 	
-{!! Form::open(['route'=>'admin.materiales.store', 'method' => 'POST', 'files'=>true]) !!}
+{!! Form::open(['route'=>'admin.materiales.store', 'method' => 'POST', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
 
-<div class="form-group">
+<div class="col-md-6 panel-body">
+	
+	<div class="form-group">
 	
 	{!!Form::text('cod_mat', null, ['class'=> 'form-control', 'required' => 'required', 'placeholder'=>'Código del material'])!!}
 
@@ -36,18 +46,17 @@
 </div>
 
 <div class="form-group">
-
-	{!!Form::select('dpto', [''=>'Seleccione el dpto.','ligths' => 'Luminarias'], ['class'=> 'form-control', 'required' => 'required'])!!}
-</div>
-
-<div class="form-group">
 	
 	{!!Form::textarea('detalles', null, ['class'=> 'form-control', 'required' => 'required', 'placeholder'=>'Detalles del material', 'rows' => 3, 'cols' => 40])!!}
 
 
 </div>
 
-<div class="form-group">
+</div>
+
+<div class="col-md-6 panel-body">
+	
+	<div class="form-group">
 	
 	{!! Form::input('number', 'cantidad_venta', null, ['class' => 'form-control', 'required' => 'required', 'placeholder'=>'Cantidad por venta']) !!}
 
@@ -60,6 +69,11 @@
 </div>
 
 <div class="form-group">
+
+	{!!Form::select('dpto', [''=>'Seleccione el dpto.','ligths' => 'Luminarias'], ['class'=> 'form-control', 'required' => 'required'])!!}
+</div>
+
+<div class="form-group">
 	
 	{!! Form::input('number', 'existencia', null, ['class' => 'form-control', 'required' => 'required', 'placeholder'=>'Existencias']) !!}
 
@@ -67,7 +81,7 @@
 
 <div class="form-group">
 	
-	{!! Form::file('foto', null, ['class'=> 'form-control', 'required' => 'required'] )!!}
+	{!! Form::file('path', null, ['class'=> 'form-control', 'required' => 'required', 'accept'=>'image/*'] )!!}
 
 </div>
 
@@ -77,6 +91,10 @@
 	{!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
 
 </div>
+
+
+</div>
+
 
 {!! Form::close()!!}
 

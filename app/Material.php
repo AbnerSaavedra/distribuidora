@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Storage;
+
+use File;
+
 class Material extends Model
 {
     //
@@ -15,6 +19,17 @@ class Material extends Model
      * @var array
      */
     protected $fillable = [
-        'cod_mat', 'desc_mat', 'dpto', 'foto', 'detalles', 'cantidad_venta', 'precio_venta', 'exitencia',
+        'cod_mat', 'desc_mat', 'dpto', 'foto', 'detalles', 'cantidad_venta', 'precio_venta', 'exitencia', 'path',
     ];
+
+    
+
+    public function scopeCodmat($query, $cod_mat){
+
+        //dd('scope '. $cod_mat);
+        if (trim($cod_mat) != "") {
+            # code...
+            $query->where('cod_mat', "LIKE", "%$cod_mat%");
+        }
+    }
 }

@@ -8,9 +8,20 @@
 
 	<div class="row">
 		
-	<div class="col-md-6 col-md-offset-3">
+		<div class="col-md-10 col-md-offset-1">
 
-<a href="{{ route('admin.dptos.create') }}" class="btn btn-info col-md-offset-9">Nuevo dpto</a><br><br>
+			<div class="panel panel-default">
+	
+				<div class="panel-body">
+
+	<h2 class="col-md-offset-4">Lista de departamentos</h2>
+
+	<p><a href="{{ route('admin.dptos.create') }}" class="btn btn-info col-md-offset-9">Nuevo dpto</a></p>
+
+				</div>
+
+			</div>
+
 <table class="table table-striped">
 <thead>
 	<th>ID</th>

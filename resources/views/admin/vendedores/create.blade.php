@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('title', 'Crear cliente')
+@section('title', 'Crear vendedor')
 
 @section('content')
 
@@ -16,13 +16,23 @@
 
 	<div class="row">
 		
-	<div class="col-md-4 col-md-offset-4">
+		<div class="col-md-12 col-md-offset-0">
 
-	<h2>Registrar cliente</h2>
+			<div class="panel panel-default">
+	
+				<div class="panel-body">
+
+					<h2 class="col-md-offset-5">Registrar vendedor</h2>
+
+				</div>
+				
+			</div>	
 	
 {!! Form::open(['route'=>'admin.vendedores.store', 'method' => 'POST']) !!}
 
-<div class="form-group">
+<div class="col-md-6">
+	
+	<div class="form-group">
 	
 	{!!Form::text('cod_vend', null, ['class'=> 'form-control', 'required' => 'required', 'placeholder'=>'Código del vendedor'])!!}
 
@@ -48,7 +58,11 @@
 
 </div>
 
-<div class="form-group">
+</div>
+
+<div class="col-md-6">
+	
+	<div class="form-group">
 	
 	{!!Form::textarea('direc_vend', null, ['class'=> 'form-control', 'required' => 'required', 'placeholder'=>'Dirección del vendedor', 'rows' => 3, 'cols' => 40])!!}
 
@@ -72,6 +86,8 @@
 
 </div>
 
+
+</div>
 {!! Form::close()!!}
 
 </div>

@@ -8,9 +8,19 @@
 
 	<div class="row">
 		
-	<div class="col-md-6 col-md-offset-3">
+		<div class="col-md-10 col-md-offset-1">
 
-<a href="{{ route('admin.clientes.create') }}" class="btn btn-info col-md-offset-9">Nuevo cliente</a><br><br>
+			<div class="panel panel-default">
+
+				<div class="panel-body">
+
+					<h2 class="col-md-offset-4">Lista de clientes</h2>
+
+<p><a href="{{ route('admin.clientes.create') }}" class="btn btn-info col-md-offset-9">Nuevo cliente</a></p>
+				</div>
+
+			</div>
+			
 <table class="table table-striped">
 <thead>
 	<th>ID</th>

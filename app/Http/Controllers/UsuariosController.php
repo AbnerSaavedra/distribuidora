@@ -12,6 +12,8 @@ use Validator;
 
 use Laracasts\Flash\FlashServiceProvider;
 
+use Illuminate\Support\Facades\Crypt;
+
 class UsuariosController extends Controller
 {
     //
@@ -26,7 +28,7 @@ class UsuariosController extends Controller
     public function index()
     {
        
-       $usuarios = User::orderBy('id','ASC')->paginate(2);
+       $usuarios = User::orderBy('id','ASC')->paginate(5);
        return view('admin.usuarios.index')->with('usuarios', $usuarios);
 
     }
@@ -64,9 +66,39 @@ class UsuariosController extends Controller
                         ->withInput();
         }
         $user = new User($request->all());
+        $user->password = Crypt::encrypt($request->password);
         $user->save();
-        flash(' El usuario '.$user->name. ' ha sido registrado exitosamente ', 'danger');
+        flash(' El usuario '.$user->name. ' ha sido registrado exitosamente ', 'success');
         return redirect()->route('admin.usuarios.index');
+    }
+
+
+    /**
+    * Para asignar un rol a
+    * usuario ya creado.
+    * 
+    *@param  int  $id
+    *@return \Illuminate\Http\Response
+    *
+    **/
+    public function asignar_rol($id){
+
+        $user = User::find($id);
+        $user->attachRole(1);
+        flash('Rol asignado exitosamente al usuario '.$user->name, 'success');
+        return redirect()->route('admin.usuarios.index');
+
+        /*if ($rol == 1) {
+            # code...
+            $user = User::find($id);
+            $user->attachRole(1);
+
+        }elseif ($rol == 2) {
+            # code...
+            $user = User::find($id);
+            $user->attachRole(2);
+        }*/
+        
     }
 
     /**

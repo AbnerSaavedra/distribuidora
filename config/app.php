@@ -161,7 +161,7 @@ return [
         */
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-
+        Bican\Roles\RolesServiceProvider::class,
     ],
 
     /*

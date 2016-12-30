@@ -8,9 +8,19 @@
 
 	<div class="row">
 		
-	<div class="col-md-6 col-md-offset-3">
+		<div class="col-md-10 col-md-offset-1">
 
-<a href="{{ route('admin.usuarios.create') }}" class="btn btn-info col-md-offset-9">Nuevo usuario</a><br><br>
+			<div class="panel panel-default">
+
+				<div class="panel-body">
+
+				<h2 class="col-md-offset-4">Lista de usuarios</h2>
+
+<p><a href="{{ route('admin.usuarios.create') }}" class="btn btn-info col-md-offset-9">Nuevo usuario</a></p>
+				</div>
+
+			</div>
+
 <table class="table table-striped">
 <thead>
 	<th>ID</th>
@@ -25,8 +35,11 @@
 		<td>{{$usuario->id}}</td>
 		<td>{{$usuario->name}}</td>
 		<td>{{$usuario->email}}</td>
-		<td><div class="row">
-			<a href="{{ route('admin.usuarios.edit', $usuario->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> <a href="{{route('admin.usuarios.destroy', $usuario->id)}}" class="btn btn-danger" onclick="return confirm('¿Seguro que quieres eliminarlo?')"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+		<td>
+		<div class="row">
+			<a href="{{ route('admin.usuarios.asignar_rol', $usuario->id) }}" class="btn btn-info" title="Asignar rol"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a>
+			<a href="{{ route('admin.usuarios.edit', $usuario->id) }}" class="btn btn-warning" title="Modificar"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+			<a href="{{route('admin.usuarios.destroy', $usuario->id)}}" class="btn btn-danger" onclick="return confirm('¿Seguro que quieres eliminarlo?')" title="Eliminar"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
 		</div></td>
 	</tr>
 

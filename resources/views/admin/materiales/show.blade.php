@@ -33,7 +33,7 @@
 		<td>{{$material->cantidad_venta}}</td>
 		<td>{{$material->precio_venta}}</td>
 		<td>{{$material->existencia}}</td>
-		<td>{{$material->foto}}</td>
+		<td><img src="imagenes/{{$material->foto}}"></td>
 	</tr>
 </tbody>
 </table>
